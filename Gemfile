@@ -13,7 +13,15 @@ end
 
 group :test do
   gem 'rspec', '2.5.0'
+  #gem 'rspec', '1.3.0'
+  #gem 'rspec-rails', '1.3.2'
+  #gem 'test-unit', '1.2.3'
+  #gem 'autotest', '4.2.10'
+  #gem 'autotest-growl', '0.2.4'
+  #gem 'autotest-rails', '4.1.0'
+
   gem 'webrat', '0.7.1'
+  gem 'spork', '0.9.0.rc4'
 end
 
 # Use unicorn as the web server
