@@ -45,14 +45,14 @@ describe User do
       invalid_email_user = User.new(@attr.merge(:email => address))
       invalid_email_user.should_not be_valid
     end
-  end
+  end 
 
   it "should reject duplicate email addresses" do
     # Put a user with given email address into the database.
     User.create!(@attr)
     user_with_duplicate_email = User.new(@attr)
     user_with_duplicate_email.should_not be_valid
-  end
+  end 
 
   it "should reject email addresses up to case" do
     upcased_email = @attr[:email].upcase
@@ -128,6 +128,27 @@ describe User do
     end
   
 
+  end
+
+
+  describe "admin attribute" do
+
+    before(:each) do
+      @user = User.create!(@attr)
+    end
+
+    it "should respond to admin" do
+      @user.should respond_to(:admin)
+    end
+
+    it "should not be an admin by default" do
+      @user.should_not be_admin
+    end
+
+    it "should be convertible to an admin" do
+      @user.toggle!(:admin)
+      @user.should be_admin
+    end
   end
 
 end

@@ -50,7 +50,9 @@ class User < ActiveRecord::Base
     (user && user.salt == cookie_salt) ? user : nil
   end
 
-
+  def admin?
+    return self.admin
+  end
 
   private
 
